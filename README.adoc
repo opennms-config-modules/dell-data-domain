@@ -1,0 +1,54 @@
+= Dell Data Domain
+
+OpenNMS configuration files for Dell Data Domain.
+
+== Installation
+
+.Download and install from GitHub
+[source, bash]
+----
+mkdir ${HOME}/opennms-config-workspace
+cd ${HOME}/opennms-config-workspace
+git clone https://github.com/opennms-config-modules/dell-data-domain.git
+----
+
+=== Data Collection
+
+.Install datacollection configuration
+[source, bash]
+----
+cp ${HOME}/opennms-config-workspace/dell-data-domain/datacollection/*.xml ${OPENNMS_HOME}/etc/datacollection
+----
+
+.Include in datacollection-config.xml
+[source, xml]
+----
+<include-collection dataCollectionGroup="Dell-Data-Domain"/>
+----
+
+=== Graph Report Definitions
+
+.Install graph report definitions
+[source, bash]
+----
+cp ${HOME}/opennms-config-workspace/dell-data-domain/snmp-graph.properties.d/*.properties ${OPENNMS_HOME}/etc/snmp-graph.properties.d
+----
+
+=== Monitors ===
+
+`${home}/monitors/poller-configuration.xml` contains example monitors.
+
+=== Events ===
+
+.Install event configuration
+[source, bash]
+----
+cp ${HOME}/opennms-config-workspace/dell-data-domain/events/*.xml ${OPENNMS_HOME}/etc/events
+----
+
+.Include in eventconf.xml
+[source, xml]
+----
+   <event-file>events/dell-data-domain.events.xml</event-file>
+----
+
