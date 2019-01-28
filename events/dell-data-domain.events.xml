@@ -9770,7 +9770,7 @@
       <uei>uei.opennms.org/traps/vendor/dell/data-domain/spaceReclError</uei>
       <event-label>DATA-DOMAIN-MIB defined trap event: spaceReclError</event-label>
       <descr>
-&lt;p>Description: <>
+&lt;p>Description:
         Archive space reclamation has stopped due to the specified error.
         Space will not be reclaimed in the archive tier until the error condition is resolved and space reclamation is restarted.
     
