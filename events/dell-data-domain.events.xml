@@ -4093,12 +4093,8 @@
 	alertInfoDescription&lt;/b>&lt;/td>&lt;td>
 	%parm[#2]%;&lt;/td>&lt;td>&lt;p>&lt;/p>&lt;/td>&lt;/tr>&lt;/table>
 	</descr>
-      <logmsg dest="logndisplay">&lt;p>
-	forcedFilesystemShutdown trap received
-	systemSerialNumber=%parm[#1]%
-	alertInfoDescription=%parm[#2]%&lt;/p>
-	</logmsg>
-      <severity>Minor</severity>
+      <logmsg dest="logndisplay">forcedFilesystemShutdown trap received</logmsg>
+      <severity>Major</severity>
        <alarm-data reduction-key="%uei%:%nodeid%:%interface%" alarm-type="3" auto-clean="false"/>
    </event>
    <event>
@@ -4671,12 +4667,8 @@
 	alertInfoDescription&lt;/b>&lt;/td>&lt;td>
 	%parm[#2]%;&lt;/td>&lt;td>&lt;p>&lt;/p>&lt;/td>&lt;/tr>&lt;/table>
 	</descr>
-      <logmsg dest="logndisplay">&lt;p>
-	filesystemProblem trap received
-	systemSerialNumber=%parm[#1]%
-	alertInfoDescription=%parm[#2]%&lt;/p>
-	</logmsg>
-      <severity>Minor</severity>
+      <logmsg dest="logndisplay">filesystemProblem trap received</logmsg>
+      <severity>Major</severity>
        <alarm-data reduction-key="%uei%:%nodeid%:%interface%" alarm-type="3" auto-clean="false"/>
    </event>
    <event>
