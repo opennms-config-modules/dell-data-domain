@@ -4870,10 +4870,7 @@
 	systemSerialNumber&lt;/b>&lt;/td>&lt;td>
 	%parm[#1]%;&lt;/td>&lt;td>&lt;p>&lt;/p>&lt;/td>&lt;/tr>&lt;/table>
 	</descr>
-      <logmsg dest="logndisplay">&lt;p>
-	dDFSRebooted trap received
-	systemSerialNumber=%parm[#1]%&lt;/p>
-	</logmsg>
+      <logmsg dest="logndisplay">dDFSRebooted trap received</logmsg>
       <severity>Minor</severity>
        <alarm-data reduction-key="%uei%:%nodeid%:%interface%" alarm-type="3" auto-clean="false"/>
    </event>
@@ -7331,11 +7328,7 @@
 	alertInfoDescription&lt;/b>&lt;/td>&lt;td>
 	%parm[#2]%;&lt;/td>&lt;td>&lt;p>&lt;/p>&lt;/td>&lt;/tr>&lt;/table>
 	</descr>
-      <logmsg dest="logndisplay">&lt;p>
-	nTPDFailed trap received
-	systemSerialNumber=%parm[#1]%
-	alertInfoDescription=%parm[#2]%&lt;/p>
-	</logmsg>
+      <logmsg dest="logndisplay">nTPDFailed trap received</logmsg>
       <severity>Warning</severity>
        <alarm-data reduction-key="%uei%:%nodeid%:%interface%" alarm-type="3" auto-clean="false"/>
    </event>
