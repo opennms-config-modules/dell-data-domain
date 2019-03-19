@@ -1,0 +1,53 @@
+<service name="Dell-DataDomain-PowerModule" interval="300000" user-defined="false" status="on">
+         <parameter key="oid" value=".1.3.6.1.4.1.19746.1.1.1.1.1.1.4"/>
+         <parameter key="match-all" value="true"/>
+         <parameter key="walk" value="true"/>
+         <parameter key="operator" value="="/>
+         <parameter key="operand" value="1"/>
+         <parameter key="reason-template" value="The state should be (${operand}), the observed value is ${observedValue}: absent (0), ok (1),failed (2),faulty (3),acnone (4),unknown (99). Check details on https://${ipaddr}"/>
+</service>
+<service name="Dell-DataDomain-TempSensor" interval="300000" user-defined="false" status="on">
+         <parameter key="oid" value=".1.3.6.1.4.1.19746.1.1.2.1.1.1.6"/>
+         <parameter key="match-all" value="true"/>
+         <parameter key="walk" value="true"/>
+         <parameter key="operator" value="~"/>
+         <parameter key="operand" value="1|2"/>
+         <parameter key="reason-template" value="The state should be (${operand}), the observed value is ${observedValue}: failed (0),ok (1),notfound (2),overheatWarning (3),overheatCritical (4). Check details on https://${ipaddr}"/>
+</service>
+<service name="Dell-DataDomain-Fan" interval="300000" user-defined="false" status="on">
+         <parameter key="oid" value=".1.3.6.1.4.1.19746.1.1.3.1.1.1.6"/>
+         <parameter key="match-all" value="true"/>
+         <parameter key="walk" value="true"/>
+         <parameter key="operator" value="="/>
+         <parameter key="operand" value="1"/>
+         <parameter key="reason-template" value="The state should be (${operand}), the observed value is ${observedValue}: notfound (0),ok (1),fail (2). Check details on https://${ipaddr}"/>
+</service>
+<service name="Dell-DataDomain-nvramBattery" interval="300000" user-defined="false" status="on">
+         <parameter key="oid" value=".1.3.6.1.4.1.19746.1.2.3.1.1.3"/>
+         <parameter key="match-all" value="true"/>
+         <parameter key="walk" value="true"/>
+         <parameter key="operator" value="="/>
+         <parameter key="operand" value="0"/>
+         <parameter key="reason-template" value="The state should be (${operand}), the observed value is ${observedValue}: ok (0),disabled (1),discharged (2),softdisabled (3). Check details on https://${ipaddr}"/>
+</service>
+<service name="Dell-DataDomain-FileSystem" interval="300000" user-defined="false" status="on">
+         <parameter key="oid" value=".1.3.6.1.4.1.19746.1.3.1.1.0"/>
+         <parameter key="operator" value="="/>
+         <parameter key="operand" value="3"/>
+         <parameter key="reason-template" value="The state should be (${operand}), the observed value is ${observedValue}: enabled (1),disabled (2),running (3),unknown (4),error (5),cleaning (6),starting (7). Check details on https://${ipaddr}"/>
+</service>
+<service name="Dell-DataDomain-Disk" interval="300000" user-defined="false" status="on">
+         <parameter key="oid" value=".1.3.6.1.4.1.19746.1.6.1.1.1.8"/>
+         <parameter key="match-all" value="true"/>
+         <parameter key="walk" value="true"/>
+         <parameter key="operator" value="~"/>
+         <parameter key="operand" value="1|5"/>
+         <parameter key="reason-template" value="The state should be (${operand}), the observed value is ${observedValue}: ok (1),unknown (2),absent (3),failed (4),spare (5),available (6),raidReconstruction (8),copyReconstruction (9). Check details on https://${ipaddr}"/>
+</service>
+
+<monitor service="Dell-DataDomain-PowerModule" class-name="org.opennms.netmgt.poller.monitors.SnmpMonitor"/>
+<monitor service="Dell-DataDomain-TempSensor" class-name="org.opennms.netmgt.poller.monitors.SnmpMonitor"/>
+<monitor service="Dell-DataDomain-Fan" class-name="org.opennms.netmgt.poller.monitors.SnmpMonitor"/>
+<monitor service="Dell-DataDomain-nvramBattery" class-name="org.opennms.netmgt.poller.monitors.SnmpMonitor"/>
+<monitor service="Dell-DataDomain-FileSystem" class-name="org.opennms.netmgt.poller.monitors.SnmpMonitor"/>
+<monitor service="Dell-DataDomain-Disk" class-name="org.opennms.netmgt.poller.monitors.SnmpMonitor"/>

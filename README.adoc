@@ -1,23 +1,6 @@
-= Net-SNMP
+= Dell Data Domain
 
-OpenNMS configuration for *nix systems with Net-SNMP agent installed.
-
-== Requirements
-
-Running OpenNMS *NIX operating system
-
-- Download the configuration module from releases as tar.gz file
-- OpenNMS 1.12+
-- OpenNMS 14+
-- Net-SNMP agents
-- Network access with SNMP v1, v2c, v3
-- Optional: git
-
-Running OpenNMS on Windows operating system
-
-- Download the configuration module from releases as ZIP file
-- If linking is not possible, you can copy the files to the location
-- Optional: git
+OpenNMS configuration files for Dell Data Domain.
 
 == Installation
 
@@ -26,21 +9,7 @@ Running OpenNMS on Windows operating system
 ----
 mkdir ${HOME}/opennms-config-workspace
 cd ${HOME}/opennms-config-workspace
-git clone https://github.com/opennms-config-modules/net-snmp.git
-----
-
-=== Events
-
-.Install events
-[source, bash]
-----
-cp ${HOME}/opennms-config-workspace/net-snmp/events/*.xml ${OPENNMS_HOME}/etc/events
-----
-
-.Include in eventconf.xml
-[source, xml]
-----
-<event-file>events/net-snmp.events.xml</event-file>
+git clone https://github.com/opennms-config-modules/dell-data-domain.git
 ----
 
 === Data Collection
@@ -48,15 +17,13 @@ cp ${HOME}/opennms-config-workspace/net-snmp/events/*.xml ${OPENNMS_HOME}/etc/ev
 .Install datacollection configuration
 [source, bash]
 ----
-cp ${HOME}/opennms-config-workspace/net-snmp/datacollection/*.xml ${OPENNMS_HOME}/etc/datacollection
+cp ${HOME}/opennms-config-workspace/dell-data-domain/datacollection/*.xml ${OPENNMS_HOME}/etc/datacollection
 ----
 
 .Include in datacollection-config.xml
 [source, xml]
 ----
-<include-collection dataCollectionGroup="Net-SNMP-disk"/>
-<include-collection dataCollectionGroup="Net-SNMP-lmsensors"/>
-<include-collection dataCollectionGroup="Net-SNMP-system"/>
+<include-collection dataCollectionGroup="Dell-Data-Domain"/>
 ----
 
 === Graph Report Definitions
@@ -64,5 +31,25 @@ cp ${HOME}/opennms-config-workspace/net-snmp/datacollection/*.xml ${OPENNMS_HOME
 .Install graph report definitions
 [source, bash]
 ----
-cp ${HOME}/opennms-config-workspace/net-snmp/graphs/*.properties ${OPENNMS_HOME}/etc/snmp-graph.properties.d
+cp ${HOME}/opennms-config-workspace/dell-data-domain/snmp-graph.properties.d/*.properties ${OPENNMS_HOME}/etc/snmp-graph.properties.d
 ----
+
+=== Monitors ===
+
+`${home}/monitors/poller-configuration.xml` contains example monitors.
+
+=== Events ===
+
+.Install event configuration
+[source, bash]
+----
+cp ${HOME}/opennms-config-workspace/dell-data-domain/events/*.xml ${OPENNMS_HOME}/etc/events
+----
+
+.Include in eventconf.xml
+[source, xml]
+----
+   <event-file>events/dell-data-domain.events.xml</event-file>
+----
+
+

@@ -1,0 +1,40 @@
+<resource-types xmlns="http://xmlns.opennms.org/xsd/config/datacollection">
+   <resourceType name="temperatureSensorEntry" label="Dell Data Domain Temperatures" resourceLabel="${tempSensorDescripti}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.dao.support.SiblingColumnStorageStrategy">
+         <parameter key="sibling-column-name" value="tempSensorDescripti"/>
+      </storageStrategy>
+   </resourceType>
+   <resourceType name="nvramBatteryEntry" label="Dell Data Domain nvram Batteries" resourceLabel="${nvramBatteryIndex}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="fileSystemCompressionEntry" label="Dell Data Domain - File System Compression" resourceLabel="${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="fileSystemSpaceEntry" label="Dell Data Domain - File System" resourceLabel="${fileSysteResourName}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.dao.support.SiblingColumnStorageStrategy">
+         <parameter key="sibling-column-name" value="fileSysteResourName"/>
+      </storageStrategy>
+   </resourceType>
+   <resourceType name="systemStatsEntry" label="Dell Data Domain - System Statistics" resourceLabel="systemStatsIndex ${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="diskPerformanceEntry" label="Dell Data Domain - Disk Performance Metrics" resourceLabel="Enclosure: ${diskPerfEnclosureID} - Disk: ${diskPerfIndex}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="diskReliabilityEntry" label="Dell Data Domain - Disk Reliability Metrics" resourceLabel="Enclosure: ${diskErrEnclosureID} - Disk: ${diskErrIndex}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="mtreeCompressionEntry" label="Dell Data Domain mTree Compression" resourceLabel="${index} - ${mtreeComprMtreePath}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.dao.support.SiblingColumnStorageStrategy">
+         <parameter key="sibling-column-name" value="mtreeComprMtreePath"/>
+      </storageStrategy>
+   </resourceType>
+</resource-types>

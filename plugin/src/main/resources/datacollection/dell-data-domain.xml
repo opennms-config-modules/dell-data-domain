@@ -1,0 +1,93 @@
+<datacollection-group xmlns="http://xmlns.opennms.org/xsd/config/datacollection" name="Dell-Data-Domain">
+
+   <group name="temperatureSensorTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.19746.1.1.2.1.1.1.1" instance="temperatureSensorEntry" alias="tempEnclosureID" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.1.2.1.1.1.2" instance="temperatureSensorEntry" alias="tempSensorIndex" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.1.2.1.1.1.4" instance="temperatureSensorEntry" alias="tempSensorDescripti" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.1.2.1.1.1.5" instance="temperatureSensorEntry" alias="tempSensoCurreValue" type="integer32"/>
+   </group>
+   <group name="nvramBatteryTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.19746.1.2.3.1.1.2" instance="nvramBatteryEntry" alias="nvramBatteryIndex" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.2.3.1.1.4" instance="nvramBatteryEntry" alias="nvramBatteryCharge" type="gauge"/>
+   </group>
+   <group name="fileSystemCompressionTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.3.1.1.1" instance="fileSystemCompressionEntry" alias="fileSysteComprIndex" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.3.1.1.5" instance="fileSystemCompressionEntry" alias="fileSystPreCompSize" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.3.1.1.6" instance="fileSystemCompressionEntry" alias="filSystPostCompSize" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.3.1.1.7" instance="fileSystemCompressionEntry" alias="filSystGlobCompFact" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.3.1.1.8" instance="fileSystemCompressionEntry" alias="filSystLocaCompFact" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.3.1.1.9" instance="fileSystemCompressionEntry" alias="filSystTotaCompFact" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.3.1.1.11" instance="fileSystemCompressionEntry" alias="fileSystReducPerce1" type="gauge"/>
+   </group>
+   <group name="fileSystemSpaceTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.2.1.1.1" instance="fileSystemSpaceEntry" alias="fileSysteResouIndex" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.2.1.1.3" instance="fileSystemSpaceEntry" alias="fileSysteResourName" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.2.1.1.4" instance="fileSystemSpaceEntry" alias="fileSystemSpaceSize" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.2.1.1.5" instance="fileSystemSpaceEntry" alias="fileSystemSpaceUsed" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.2.1.1.6" instance="fileSystemSpaceEntry" alias="fileSysteSpaceAvail" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.2.1.1.7" instance="fileSystemSpaceEntry" alias="fileSystePercenUsed" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.3.2.1.1.8" instance="fileSystemSpaceEntry" alias="fileSysteSpaceClean" type="gauge"/>
+   </group>
+   <group name="systemStatsTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.1" instance="systemStatsEntry" alias="systemStatsIndex" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.2" instance="systemStatsEntry" alias="cpuAvgPercentagBusy" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.3" instance="systemStatsEntry" alias="cpuMaxPercentagBusy" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.4" instance="systemStatsEntry" alias="nfsOpsPerSecond" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.5" instance="systemStatsEntry" alias="nfsIdlePercentage" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.6" instance="systemStatsEntry" alias="nfsProcPercentage" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.7" instance="systemStatsEntry" alias="nfsSendPercentage" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.8" instance="systemStatsEntry" alias="nfsReceivePercentag" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.9" instance="systemStatsEntry" alias="cifsOpsPerSecond" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.10" instance="systemStatsEntry" alias="disReadKBytePerSeco" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.11" instance="systemStatsEntry" alias="disWritKBytePerSeco" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.12" instance="systemStatsEntry" alias="diskBusyPercentage" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.13" instance="systemStatsEntry" alias="nvrReadKBytePerSeco" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.14" instance="systemStatsEntry" alias="nvrWritKBytePerSeco" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.15" instance="systemStatsEntry" alias="replInKBytePerSecon" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.5.1.1.1.16" instance="systemStatsEntry" alias="replOutKBytePerSeco" type="counter32"/>
+   </group>
+   <group name="diskPerformanceTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.2.1.1.1" instance="diskPerformanceEntry" alias="diskPerfEnclosureID" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.2.1.1.2" instance="diskPerformanceEntry" alias="diskPerfIndex" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.2.1.1.3" instance="diskPerformanceEntry" alias="diskSectorsRead" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.2.1.1.4" instance="diskPerformanceEntry" alias="diskSectorsWritten" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.2.1.1.5" instance="diskPerformanceEntry" alias="diskTotalKBytes" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.2.1.1.6" instance="diskPerformanceEntry" alias="diskBusy" type="gauge"/>
+   </group>
+   <group name="diskReliabilityTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.3.1.1.1" instance="diskReliabilityEntry" alias="diskErrEnclosureID" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.3.1.1.2" instance="diskReliabilityEntry" alias="diskErrIndex" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.3.1.1.4" instance="diskReliabilityEntry" alias="diskTemperature" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.3.1.1.5" instance="diskReliabilityEntry" alias="diskTimeoutCount" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.3.1.1.6" instance="diskReliabilityEntry" alias="diskReadFailCount" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.3.1.1.7" instance="diskReliabilityEntry" alias="diskWriteFailCount" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.3.1.1.8" instance="diskReliabilityEntry" alias="diskMiscFailCount" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.3.1.1.9" instance="diskReliabilityEntry" alias="diskOffTracErrCount" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.3.1.1.10" instance="diskReliabilityEntry" alias="diskSoftEccCount" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.3.1.1.11" instance="diskReliabilityEntry" alias="diskCrcErrCount" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.3.1.1.12" instance="diskReliabilityEntry" alias="diskProbationaCount" type="counter32"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.6.3.1.1.13" instance="diskReliabilityEntry" alias="diskReallocCount" type="counter32"/>
+   </group>
+   <group name="mtreeCompressionTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.19746.1.15.1.1.1.1" instance="mtreeCompressionEntry" alias="mtreeCompressiIndex" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.15.1.1.1.2" instance="mtreeCompressionEntry" alias="mtreeComprMtreePath" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.15.1.1.1.3" instance="mtreeCompressionEntry" alias="mtreComprPreCompGib" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.15.1.1.1.4" instance="mtreeCompressionEntry" alias="mtreCompPostCompGib" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.15.1.1.1.5" instance="mtreeCompressionEntry" alias="mtrCompGlobCompFact" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.15.1.1.1.6" instance="mtreeCompressionEntry" alias="mtrCompLocaCompFact" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.19746.1.15.1.1.1.7" instance="mtreeCompressionEntry" alias="mtrComPosTotComFact" type="gauge"/>
+   </group>
+   <systemDef name="Dell-DataDomain">
+      <sysoidMask>.1.3.6.1.4.1.19746.</sysoidMask>
+      <collect>
+         <includeGroup>diskPerformanceTable</includeGroup>
+         <includeGroup>diskReliabilityTable</includeGroup>
+         <includeGroup>systemStatsTable</includeGroup>
+         <includeGroup>fileSystemSpaceTable</includeGroup>
+         <includeGroup>fileSystemCompressionTable</includeGroup>
+         <includeGroup>mtreeCompressionTable</includeGroup>
+         <includeGroup>temperatureSensorTable</includeGroup>
+         <includeGroup>nvramBatteryTable</includeGroup>
+      </collect>
+</systemDef>
+</datacollection-group>
