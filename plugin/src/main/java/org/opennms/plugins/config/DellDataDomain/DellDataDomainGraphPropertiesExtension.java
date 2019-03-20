@@ -26,23 +26,20 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.plugins.config.netsnmp;
-
-import org.opennms.integration.api.v1.config.events.EventConfExtension;
-import org.opennms.integration.api.v1.config.events.EventDefinition;
-import org.opennms.integration.api.xml.ClasspathEventDefinitionLoader;
+package org.opennms.plugins.config.DellDataDomain;
 
 import java.util.List;
 
-public class NetSnmpEventsExtension implements EventConfExtension {
-    private final ClasspathEventDefinitionLoader classpathEventDefinitionLoader = new ClasspathEventDefinitionLoader(
-            EventConfExtension.class,
-            "netsnmp.events.xml"
-    );
+import org.opennms.integration.api.v1.config.datacollection.graphs.PrefabGraph;
+import org.opennms.integration.api.xml.ClassPathGraphPropertiesLoader;
+
+public class DellDataDomainGraphPropertiesExtension implements org.opennms.integration.api.v1.config.datacollection.graphs.GraphPropertiesExtension {
+
+    private ClassPathGraphPropertiesLoader graphPropertiesLoader = new ClassPathGraphPropertiesLoader(DellDataDomainGraphPropertiesExtension.class,
+            "dell-data-domain.graph.properties");
+
     @Override
-    public List<EventDefinition> getEventDefinitions() {
-        return classpathEventDefinitionLoader.getEventDefinitions();
+    public List<PrefabGraph> getPrefabGraphs() {
+        return graphPropertiesLoader.getGraphProperties();
     }
 }
-
-

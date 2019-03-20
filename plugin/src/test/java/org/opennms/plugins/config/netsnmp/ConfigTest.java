@@ -26,7 +26,7 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.plugins.config.netsnmp;
+package org.opennms.plugins.config.DellDataDomain;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
@@ -43,46 +43,32 @@ public class ConfigTest {
 
     @Test
     public void canLoadSnmpCollectionExtension() {
-        NetSnmpSnmpCollectionExtensionImpl snmpCollectionExtension = new NetSnmpSnmpCollectionExtensionImpl();
-        assertThat(snmpCollectionExtension.getSnmpDataCollectionGroups(), hasSize(3));
+        DellDataDomainSnmpCollectionExtensionImpl snmpCollectionExtension = new DellDataDomainSnmpCollectionExtensionImpl();
+        assertThat(snmpCollectionExtension.getSnmpDataCollectionGroups(), hasSize(1));
     }
 
     @Test
     public void canLoadGraphPropertiesExtension() {
-        NetSnmpGraphPropertiesExtension graphPropertiesExtension = new NetSnmpGraphPropertiesExtension();
-        assertThat(graphPropertiesExtension.getPrefabGraphs(), hasSize(24));
+        DellDataDomainGraphPropertiesExtension graphPropertiesExtension = new DellDataDomainGraphPropertiesExtension();
+        assertThat(graphPropertiesExtension.getPrefabGraphs(), hasSize(47));
     }
 
     @Test
     public void canLoadResourceTypesExtension() {
-        NetSnmpResourceTypesExtension resourceTypesExtension = new NetSnmpResourceTypesExtension();
-        assertThat(resourceTypesExtension.getResourceTypes(), hasSize(2));
+        DellDataDomainResourceTypesExtension resourceTypesExtension = new DellDataDomainResourceTypesExtension();
+        assertThat(resourceTypesExtension.getResourceTypes(), hasSize(8));
     }
 
     @Test
     public void canReadEventDefinitionsFromExtension() {
-        NetSnmpEventsExtension netSnmpEventConfExtension = new NetSnmpEventsExtension();
-        List<EventDefinition> eventDefinitions = netSnmpEventConfExtension.getEventDefinitions();
-        assertThat(eventDefinitions, hasSize(3));
-        EventDefinition nsNotifyStart = eventDefinitions.get(0);
-        assertThat(nsNotifyStart.getUei(), equalTo("uei.opennms.org/vendor/netsnmp/traps/nsNotifyStart"));
-        assertThat(nsNotifyStart.getPriority(), equalTo(20));
-        assertThat(nsNotifyStart.getSeverity(), equalTo(Severity.NORMAL));
-
-        EventDefinition nsNotifyShutdown = eventDefinitions.get(1);
-        assertThat(nsNotifyShutdown.getUei(), equalTo("uei.opennms.org/vendor/netsnmp/traps/nsNotifyShutdown"));
-        assertThat(nsNotifyShutdown.getPriority(), equalTo(20));
-        assertThat(nsNotifyShutdown.getSeverity(), equalTo(Severity.WARNING));
-
-        EventDefinition nsNotifyRestart = eventDefinitions.get(2);
-        assertThat(nsNotifyRestart.getUei(), equalTo("uei.opennms.org/vendor/netsnmp/traps/nsNotifyRestart"));
-        assertThat(nsNotifyRestart.getPriority(), equalTo(20));
-        assertThat(nsNotifyRestart.getSeverity(), equalTo(Severity.NORMAL));
+        DellDataDomainEventsExtension DellDataDomainEventConfExtension = new DellDataDomainEventsExtension();
+        List<EventDefinition> eventDefinitions = DellDataDomainEventConfExtension.getEventDefinitions();
+        assertThat(eventDefinitions, hasSize(280));
     }
 
     @Test
     public void testAliasRrdMax19CharLimit() {
-        NetSnmpSnmpCollectionExtensionImpl snmpCollectionExtension = new NetSnmpSnmpCollectionExtensionImpl();
+        DellDataDomainSnmpCollectionExtensionImpl snmpCollectionExtension = new DellDataDomainSnmpCollectionExtensionImpl();
         snmpCollectionExtension.getSnmpDataCollectionGroups().forEach(collectionGroup -> collectionGroup.getGroups().forEach(group -> group.getMibObjs().forEach(mibObj -> assertThat(mibObj.getAlias().length(), lessThanOrEqualTo(19)))));
     }
 }

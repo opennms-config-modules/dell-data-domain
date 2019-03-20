@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <groupId>org.opennms.plugins.config</groupId>
-    <artifactId>netsnmp-parent</artifactId>
+    <artifactId>dell-data-domain-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>netsnmp-features</artifactId>
-  <name>OpenNMS :: Plugins :: Config :: Net-SNMP :: Karaf Features</name>
+  <artifactId>dell-data-domain-features</artifactId>
+  <name>OpenNMS :: Plugins :: Config :: Dell Data Domain :: Karaf Features</name>
   <packaging>pom</packaging>
 
   <build>
@@ -82,7 +82,7 @@
                 <feature>framework</feature>
               </framework>
               <features>
-                <feature>opennms-plugins-config-net-snmp</feature>
+                <feature>opennms-plugins-config-dell-data-domain</feature>
               </features>
             </configuration>
           </execution>
@@ -110,7 +110,7 @@
 
     <dependency>
       <groupId>org.opennms.plugins.config</groupId>
-      <artifactId>netsnmp-plugin</artifactId>
+      <artifactId>dell-data-domain-plugin</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>

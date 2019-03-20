@@ -26,22 +26,27 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.plugins.config.netsnmp;
-
-import org.opennms.integration.api.v1.config.datacollection.ResourceType;
-import org.opennms.integration.api.xml.ClassPathResourceTypesLoader;
+package org.opennms.plugins.config.DellDataDomain;
 
 import java.util.List;
 
-public class NetSnmpResourceTypesExtension implements org.opennms.integration.api.v1.config.datacollection.ResourceTypesExtension {
+import org.opennms.integration.api.v1.config.datacollection.SnmpCollectionExtension;
+import org.opennms.integration.api.v1.config.datacollection.SnmpDataCollection;
+import org.opennms.integration.api.xml.ClasspathSnmpDataCollectionLoader;
 
-    private final ClassPathResourceTypesLoader classPathResourceTypesLoader =
-            new ClassPathResourceTypesLoader(NetSnmpResourceTypesExtension.class,
-                    "net-snmp-disk-resource.xml",
-                    "net-snmp-lmsensors-resources.xml");
+public class DellDataDomainSnmpCollectionExtensionImpl implements SnmpCollectionExtension {
+
+    private final ClasspathSnmpDataCollectionLoader snmpDataCollectionLoader =
+            new ClasspathSnmpDataCollectionLoader(DellDataDomainSnmpCollectionExtensionImpl.class,
+                    "dell-data-domain.xml");
 
     @Override
-    public List<ResourceType> getResourceTypes() {
-        return classPathResourceTypesLoader.getResourceTypes();
+    public List<SnmpDataCollection> getSnmpDataCollectionGroups() {
+        return snmpDataCollectionLoader.getSnmpDataCollections();
+    }
+
+    @Override
+    public String getSnmpCollectionName() {
+        return "default";
     }
 }
